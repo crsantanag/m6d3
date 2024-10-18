@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  article: one
+  user: one
+  kind: MyString
+  type: 
+  comment: MyString
+  references: MyString
+
+two:
+  article: two
+  user: two
+  kind: MyString
+  type: 
+  comment: MyString
+  references: MyString

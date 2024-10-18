@@ -1,0 +1,31 @@
+* {
+    /* border: solid 1px red */
+}
+
+body {
+    padding-top: 100px; /* Ajusta este valor según la altura de tu navbar */
+}
+
+.noticia {
+    color: green;
+    background-color: white;
+}
+
+./app/views/articles/_form.html.erb:45:      <%= form.select :country_id, options_for_select([ ["Seleccione un lugar", ""] ] + @countries), {}, class: "ps-2 col-6 form-select", prompt: "Seleccione un lugar", required: true, style:"height: 40px" %>
+
+
+./app/controllers/articles_controller.rb:79:      @countries = Country.all.pluck :name, :id
+
+
+
+./log/development.log:15463:   10:           <strong class="d-inline-block">Lugar</strong> : <%= l(article.country.name, format: :long) %>
+./log/development.log:15493:   10:           <strong class="d-inline-block">Lugar</strong> : <%= article.country.name %>
+./log/development.log:15521:   10:           <strong class="d-inline-block">Lugar</strong> : <%= article.country.name %>
+./log/development.log:15546:     7:           <strong class="d-inline-block">Lugar</strong> : <%= article.country.name %>
+./log/development.log:15577:     7:           <strong class="d-inline-block">Lugar</strong> : <%= article.country.name %>
+./log/development.log:15608:     7:           <strong class="d-inline-block">Lugar</strong> : <%= article.country.name %>
+./log/development.log:34392:ActionView::Template::Error (undefined method `country' for an instance of Article):
+./log/development.log:34395:NoMethodError (undefined method `country' for an instance of Article)
+./log/development.log:34399:    13:           <strong class="d-inline-block">Lugar</strong> : <%= article.country.name %>
+./test/fixtures/articles.yml:7:  country: one
+./test/fixtures/articles.yml:13:  country: two

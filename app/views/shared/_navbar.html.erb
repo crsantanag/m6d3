@@ -1,0 +1,49 @@
+
+    <nav class="px-2 px-md-10 mx-2 mx-md-10 navbar navbar-expand-lg bg-body-tertiary fixed-top border-top border-bottom border-2 border-info">
+        <div class="container-fluid">
+
+            <%= link_to "Crazy4Cats", root_path, class: 'navbar-brand' %>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <button type="button" class= "btn btn-light fs-5"> <%= link_to "Artículos", articles_path, class: 'nav-link' %> </button>
+                    </li>
+                    <li>
+                        <div class="d-flex mt-2 mx-3 align-items-center">
+                        <% if user_signed_in? %>
+                            <%= link_to "Crear artículo", new_article_path, class: "btn btn-info fs-5" %>
+                        <% end %>
+                        </div>
+                    </li>
+                </ul> 
+
+                <div class="d-flex mx-2 justify-content-end align-items-center">
+                    <% if user_signed_in? %>
+
+                        <% if current_user.name.present? %>
+                            <span class="text-dark fs-4"> Bienvenido </span> <%= link_to current_user.name,   edit_user_registration_path(@user),  class: "mx-2 btn btn-primary" %>
+                        <% else %>
+                            <span class="text-dark fs-4 mx-2"> Bienvenido <%= current_user.email %> </span> 
+                        <% end %>
+
+                        <%= button_to "Cerrar sesión", destroy_user_session_path, class: "btn btn-secondary", method: :delete %>
+                    <% else %>
+                        <div>
+                            <%= link_to "Iniciar sesión", new_user_session_path,   class: "btn btn-secondary" %>
+                            <%= link_to "Registrarse", new_user_registration_path, class: "btn btn-secondary" %>
+                        </div>
+                    <% end %>
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+

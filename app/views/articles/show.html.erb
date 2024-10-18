@@ -1,0 +1,70 @@
+<% content_for :title, "Articles" %>
+
+<div id="articles">
+  <div class="container">
+      
+  <div class="row justify-content-center">
+  <div class="col-12 col-sm-6 mb-4">
+    
+      <% if notice %>
+        <p class="my-3">
+        <span class="d-block notice" style="color: red"> <%= notice %> </span>
+        </p>
+      <% end %>
+
+      <% if @comment && @comment.errors.any? %>
+        <div id="error_explanation" class="mx-2"  style="color: red">
+          <h2><%= pluralize(@comment.errors.count, "Error: ") %> No es posible guardar comentario</h2>
+          <ul>
+            <% @comment.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= render @article %>
+
+      <div class="d-flex flex-wrap">
+        <% Article::Kinds.each do |kind| %>
+            <span class="me-2 mb-2"> 
+                <%= button_to "#{Article::KindsSpanish[kind]}", new_user_reaction_path(article_id: @article.id, reaction_type: "article", kind: kind), method: :post, class: "btn btn-success" %> 
+            </span>
+        <% end %>
+      </div>
+
+      <%= form_with(model: [ @article, Comment.new ]) do |form| %>
+
+          <div class="my-2 w-100">
+            <div class="form-group my-2">
+              <%= form.label :content, "Ingresa tu comentario", class: "col-12"%>
+              <%= form.text_area :content, required: true, class: "form-control ps-2 col-12 border rounded-2", rows: 3 %>
+            </div>
+            <%= form.submit "Comentar", class: "btn btn-primary" %>
+          </div>
+
+      <% end %>
+
+      <br>
+      <h2> Comentarios </h2>
+
+      <% @article.comments.order(created_at: :desc).each do |comment| %> <!-- Itero sobre los comentarios de cada article -->
+        <div class="my-2 border rounded-2">
+          <%= l(comment.created_at, format: :long) %> <br>
+          <div class="mx-3 mb-2"> 
+
+            <strong class="d-inline-block">Usuario   </strong> : <%= comment.user.name if comment.user %> 
+            <br>
+
+            <strong class="d-inline-block">Comentario</strong> : <%= comment.content %> 
+
+          </div>
+        </div>
+      <% end %>
+
+      <%= link_to "Regresar", articles_path, class: "btn btn-primary" %>
+    
+  </div>
+  </div>
+  </div>
+</div>

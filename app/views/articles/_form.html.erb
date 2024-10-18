@@ -1,0 +1,54 @@
+<%= form_with(model: article, local: true, multipart: true) do |form| %>
+
+    <% if article.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(article.errors.count, "Error.") %>  No es posible crear artículo debido a:</h2>
+
+        <ul>
+          <% article.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div>
+
+    <div class="my-2 col-12 col-md-6">
+      <%= form.label :image, "Imagen (no obligatoria) - Tamaño relación 2:1 - Máx 1 Mb", class: "col-12" %>
+      <br>
+      <div class="d-flex align-items-center">
+        <%= form.file_field :image,  placeholder: "Cargar archivo de imagen", class: "ps-2 py-1 col-12 border rounded-2", style:"height: 40px" %>
+      </div>
+    </div>
+
+    <div class="my-2 col-12 col-md-6">
+      <%= form.label :title, "Título", class: "col-12" %>
+      <br>
+      <%= form.text_field :title, required: true, class: "ps-2 col-12 border rounded-2", style:"height: 40px" %>
+    </div>
+
+    <div class="my-2 col-12 col-md-6">
+      <%= form.label :description, "Descripción", class: "col-12" %>
+      <br>
+      <%= form.text_area :description, required: true, class: "ps-2 col-12 border rounded-2", rows: 3 %>
+    </div>
+
+    <div class="my-2 col-12 col-md-4">
+      <%= form.label :when, "Fecha", class: "col-6" %>
+      <br>
+      <%= form.datetime_field :when, required: true, class: "ps-2 col-6 border rounded-2", style:"height: 40px" %>
+    </div>
+
+    <div class="my-2 col-12 col-md-4">
+      <%= form.label  :location_id, "Lugar", class: "col-6" %>
+      <%= form.select :location_id, options_for_select([ ["Seleccione un lugar", ""] ] + @locations), {}, class: "ps-2 col-6 form-select", prompt: "Seleccione un lugar", required: true, style:"height: 40px" %>
+    </div>
+
+    <div class="pt-4">
+      <button type="submit" class="col-4 col-md-1 btn btn-secondary border">Submit</button>
+    </div>
+
+  </div>
+
+<% end %>

@@ -1,0 +1,32 @@
+<div id="<%= dom_id article %>">
+
+  <div class="card mb-1">
+  
+    <div class="card-header">
+      <% if article.image.attached? %>
+        <div class="d-flex justify-content-center mb-1">
+          <%= image_tag article.image, class: "img-fluid", style: "max-width: 600px; max-height: 300px; width: 100%; height: auto;" %>
+        </div>
+      <% end %>
+
+      <p class="my-1">
+          <strong class="d-inline-block">Lugar</strong> : <%= article.location.name %>
+      </p>
+
+      <p class="mb-2">
+          <strong class="d-inline-block">Creado el</strong> : <%= article.when.strftime("%d-%m-%Y") %>
+      </p>
+    </div>
+
+    <div class="card-body">
+      <h5 class="card-title mb-2"> <%= article.title %> </h5>
+      <p class="card-text"> <%= article.description %> </p>
+
+      <div class="d-flex justify-content-start"> 
+        <%= link_to "Ver artículo ".html_safe + " <span class='top-0 badge rounded-pill bg-danger'>#{article.comments.count}</span>".html_safe, article, class: "btn btn-primary mt-2" %>
+      </div>
+    </div>
+
+  </div>
+
+</div>
