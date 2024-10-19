@@ -12,13 +12,13 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         if user_signed_in?
-          format.html { redirect_to article_path(@article.id), notice: "Comentario se creó exitosamente " }
+          format.html { redirect_to article_path(@article.id), notice: "Comentario creado." }
         else
-          format.html { redirect_to article_path(@article.id), notice: "Comentario se creó exitosamente - anónimo" }
+          format.html { redirect_to article_path(@article.id), notice: "Comentario creado - anónimo." }
         end
       else
         logger.error @comment.errors.full_messages
-        format.html { redirect_to article_path(@article.id), notice: "Comentario no pudo ser creado" }
+        format.html { redirect_to article_path(@article.id), notice: "Comentario no pudo ser creado." }
       end
     end
   end

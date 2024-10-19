@@ -39,7 +39,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to @article, notice: "Artículo creado exitosamente." }
+        format.html { redirect_to @article, notice: "Artículo creado." }
         format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -66,7 +66,7 @@ class ArticlesController < ApplicationController
     @article.destroy!
 
     respond_to do |format|
-      format.html { redirect_to articles_path, status: :see_other, notice: "Article was successfully destroyed." }
+      format.html { redirect_to articles_path, status: :see_other, notice: "Artículo y sus comentarios -si existían- se eliminaron." }
       format.json { head :no_content }
     end
   end

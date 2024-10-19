@@ -10,16 +10,16 @@ Ruby on Rails - postgresql
 Esta aplicación realiza, usando el modelo de un blog, publicaciones, comentarios  y likes a los artículos. Adicionalmente, tiene control de acceso (LogIn, LogOut, SignUp y editUser ) para publicar y dar likes; y está libre para comentar (no requiere ser usuario registrado).  
   
 OBS:  
-   - La aplicación permite determinadas vistas según el perfil del usuario (sesión iniciada/no iniciada).  
-   - El usuario, al registrarse, puede subir una imagen en su registro.  
-   - Si se desea cambiar los datos del usuario, éste debe hacer click sonbre su nombre en la barra de navegación y lo lleva a la vista de modificación.  
-   - Sólo el usuario registrado y con sesión activa puede crear artículos.  
-   - Para reaccionar al artículo dando like, dislike o neutral el usuario debe haber iniciado sesión.  
-   - El artículo permite subir una imagen para ilustrarlo.  
-   - Los artículos se muestran en orden descendiente según la fecha de creación del mismo.  
-   - Cualquier usuario, habiendo o no iniciado sesión, puede hacer comentarios sobre un artículo.  
-   - No se permite editar artículos, ya que los likes o dislikes son para el artículo que ve un usuario. Por lo tanto, si se cambia su contenido, los likes o dislikes ya no serán -necesariamente- para el articulo editado.  
-   - En esta versión no se permite eliminar un artículo.  
+   1. La aplicación permite determinadas vistas según el perfil del usuario (sesión iniciada/no iniciada).  
+   2. El usuario, al registrarse, puede subir una imagen en su registro.  
+   3. Si se desea cambiar los datos del usuario, éste debe hacer click sobre su nombre en la barra de navegación y lo lleva a la vista de modificación.  
+   4. Sólo el usuario registrado y con sesión activa puede crear artículos.  
+   5. Para reaccionar al artículo dando "me gusta", "no me gusta", "me es indiferente" o "neutral" el usuario debe haber iniciado sesión.  
+   6. El artículo permite subir una imagen para ilustrarlo.  
+   7. Los artículos se muestran en orden descendiente según la fecha de creación del mismo.  
+   8. Cualquier usuario, habiendo o no iniciado sesión, puede hacer comentarios sobre un artículo.  
+   9. No se permite editar artículos, ya que las reacciones ("me gusta", "no me gusta", "me es indiferente" o "neutral") son para el artículo original. Por lo tanto, si se cambia su contenido, las reacciones ya no serán -necesariamente- para el articulo editado.  
+   10. Se permite eliminar artículos y sus comentarios, pero sólo el dueño del artículo puede hacerlo.  
 
 ## Modelo de datos  
   

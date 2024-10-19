@@ -1,14 +1,13 @@
 <% content_for :title, "Articles" %>
 
 <div id="articles">
-  <div class="container">
       
-  <div class="row justify-content-center">
-  <div class="col-12 col-sm-6 mb-4">
+  <div class="row justify-content-center mx-0 px-0">
+    <div class="col-12 col-sm-6 mb-4">
     
       <% if notice %>
         <p class="my-3">
-        <span class="d-block notice" style="color: red"> <strong> <%= notice %> </strong> </span>
+          <span class="d-block notice" style="color: red"> <strong> <%= notice %> </strong> </span>
         </p>
       <% end %>
 
@@ -44,22 +43,19 @@
 
       <% @article.comments.order(created_at: :desc).each do |comment| %> <!-- Itero sobre los comentarios de cada article -->
         <div class="my-1 border rounded-2">
-          <%= l(comment.created_at, format: :long) %> <br>
-          <div class="mx-3 mb-2"> 
+            <%= l(comment.created_at, format: :long) %> <br>
 
-            <strong class="d-inline-block">Usuario   </strong> : <%= comment.user.name if comment.user %> 
-            <br>
-
-            <strong class="d-inline-block">Comentario</strong> : <%= comment.content %> 
-
-          </div>
+            <div class="mx-3 mb-2"> 
+                <strong class="d-inline-block">Usuario   </strong> : <%= comment.user.name if comment.user %> 
+                <br>
+                <strong class="d-inline-block">Comentario</strong> : <%= comment.content %> 
+            </div>
         </div>
       <% end %>
-      <br>
 
+      <br>
       <%= link_to "Regresar", articles_path, class: "btn btn-primary" %>
     
-  </div>
-  </div>
+    </div>
   </div>
 </div>

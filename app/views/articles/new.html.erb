@@ -2,6 +2,24 @@
 
 <h1>Nuevo Artículo</h1>
 
+      <% if notice %>
+        <p class="my-3">
+          <span class="d-block notice" style="color: red"> <strong> <%= notice %> </strong> </span>
+        </p>
+      <% end %>
+
+      <% if @comment && @comment.errors.any? %>
+        <div id="error_explanation" class="mx-2"  style="color: red">
+          <h2><%= pluralize(@comment.errors.count, "Error: ") %> No es posible guardar comentario</h2>
+          <ul>
+            <% @comment.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+
 <%= render "form", article: @article %>
 
 <br>

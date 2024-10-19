@@ -23,10 +23,20 @@
       <p class="card-text"> <%= article.description %> </p>
 
       <div class="d-flex justify-content-start align-items-center mb-2"> 
-        <%= link_to "Ver artículo ".html_safe + "<span class='top-0 badge rounded-pill bg-danger'>#{article.comments.count}</span>".html_safe, article, class: "btn btn-primary mt-2" %>
+        <% if controller_name == "articles" %>
+          <% if action_name == "index" %>
+              <%= link_to "Ver artículo ".html_safe + "<span class='top-0 badge rounded-pill bg-danger'>#{article.comments.count}</span>".html_safe, article, class: "btn btn-primary mt-2" %>
+          <% elsif action_name == "show" %>
+              <% if user_signed_in? %>
+                  <% if article.user_id == current_user.id %>
+                      <%= button_to "Eliminar artículo", @article, method: :delete, data: { confirm: "¿Está seguro?" }, class: "col-3 col-md-1  py-2 btn btn-warning", style:"width: 200px" %>
+                  <% end %>
+              <% end %>
+          <% end %>
+        <% end%>
       </div>
-      <br> 
 
+      <br> 
       <div class="d-flex justify-content-between align-items-center mb-2"> 
         <%= button_to "<i class='mb-3 me-2 fa-regular fa-face-smile fa-2xl reaccion-n'></i>".html_safe + "<span class='me-2 badge rounded-pill bg-primary'>#{article.reactions.where(kind: "like").count}</span>".html_safe, 
         new_user_reaction_path(article_id: article.id, reaction_type: "article", kind: "like"), 
