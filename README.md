@@ -7,14 +7,14 @@ Ruby on Rails - postgresql
 
 ## Descripción
 
-Esta aplicación realiza, usando el modelo de un blog, realizar publicaciones, comentarios  y likes a los artículos. Adicionalmente, tiene control de acceso (LogIn, LogOut, SignUp y editUser ) para publicar y dar likes, y está libre para comentar (no requiere ser ususario registrado).  
+Esta aplicación realiza, usando el modelo de un blog, publicaciones, comentarios  y likes a los artículos. Adicionalmente, tiene control de acceso (LogIn, LogOut, SignUp y editUser ) para publicar y dar likes; y está libre para comentar (no requiere ser usuario registrado).  
   
 OBS:  
     - El usuario puede subir una imagen en su registro.  
     - El artículo permite subir una imagen para ilustrarlo.  
     - Los artículos se muestran en orden descendiente según la fecha de creación del mismo.  
     - La aplicación permite determinadas vistas según el perfil del usuario. Sólo el usuario registrado puede crear artículos.  
-    - No se permite editar artículos, ya que los likes o dislikes son para el artículo que ve un usuario. Por lo tanto, si se cambia su contenido los likes o dislikes ya no serán -necesariamente- para el articulo editado.  
+    - No se permite editar artículos, ya que los likes o dislikes son para el artículo que ve un usuario. Por lo tanto, si se cambia su contenido, los likes o dislikes ya no serán -necesariamente- para el articulo editado.  
     - En esta versión no se permite eliminar un artículo.  
     - Si se desea cambiar los datos del usuario, éste debe hacer click sonbre su nombre en la barra de navegación y lo lleva a la vista de modificación.  
   
