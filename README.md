@@ -44,7 +44,8 @@ cd m6d3
 Las gemas que se deben instalar son:  
    - faker (crea datos ficticios)  
    - pagy  (paginación)   
-   - devise (autenticación)  
+   - devise (autenticación)
+   - figaro (configuración de variables ENV)  
    - activestorage (almacenamiento de imágenes)
      rails active_storage:install
 

@@ -4,6 +4,7 @@ gem "devise"
 gem "faker"
 gem "pagy"
 gem "activestorage"
+gem "figaro"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.2.1", ">= 7.2.1.1"
