@@ -1,5 +1,6 @@
 class Article < ApplicationRecord
-  belongs_to :location
+  belongs_to :user      # Para saber quién crea el artículo
+  belongs_to :location  # Para saber dónde se hizo el artículo
 
   has_one_attached :image
   has_many :comments, dependent: :destroy

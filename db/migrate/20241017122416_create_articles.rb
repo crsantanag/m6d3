@@ -4,7 +4,8 @@ class CreateArticles < ActiveRecord::Migration[7.2]
       t.string :title
       t.string :description
       t.datetime :when
-      t.references :country, null: false, foreign_key: true
+      t.references :location, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

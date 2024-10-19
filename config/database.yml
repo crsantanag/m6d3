@@ -10,8 +10,8 @@ default: &default
 development:
   <<: *default
   database: m6d3
-  username: csantana
-  password: koala
+  username: <%= ENV["BD_USERNAME"] %>
+  password: <%= ENV["BD_PASSWORD"] %>
   host: localhost
   port: 5432
 
@@ -19,10 +19,10 @@ development:
 test:
   <<: *default
   database: m6d3_test
-  username: csantana
-  password: koala
+  username: <%= ENV["BD_USERNAME"] %>
+  password: <%= ENV["BD_PASSWORD"] %>
   host: localhost
-  port: 5432
+  port: 5432 
 
 
 production:

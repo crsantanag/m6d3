@@ -29,7 +29,7 @@
       <div class="d-flex flex-wrap justify-content-center">
         <% Article::Kinds.each do |kind| %>
             <span class="me-2 mb-2"> 
-                <%= button_to "#{Article::KindsSpanish[kind]}", new_user_reaction_path(article_id: article.id, reaction_type: "article", kind: kind), method: :post, class: "btn btn-success w-100 rounded-pill" %> 
+                <%= button_to "#{Article::KindsSpanish[kind]}", new_user_reaction_path(article_id: article.id, reaction_type: "article", kind: kind), method: :post, class: "btn btn-success w-100 rounded-pill" %> <i class="fa-regular fa-thumbs-up"></i>
             </span>
         <% end %>
       </div>

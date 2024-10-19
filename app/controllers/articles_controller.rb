@@ -33,7 +33,9 @@ class ArticlesController < ApplicationController
 
   # POST /articles or /articles.json
   def create
-    @article = Article.new(article_params)
+    # @article = Article.new(article_params)
+    @article = Article.new
+    @article = current_user.articles.build(article_params) # Asocia el artículo al usuario actual
 
     respond_to do |format|
       if @article.save
