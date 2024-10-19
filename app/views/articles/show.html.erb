@@ -8,7 +8,7 @@
     
       <% if notice %>
         <p class="my-3">
-        <span class="d-block notice" style="color: red"> <%= notice %> </span>
+        <span class="d-block notice" style="color: red"> <strong> <%= notice %> </strong> </span>
         </p>
       <% end %>
 
@@ -24,14 +24,6 @@
       <% end %>
 
       <%= render @article %>
-
-      <div class="d-flex flex-wrap">
-        <% Article::Kinds.each do |kind| %>
-            <span class="me-2 mb-2"> 
-                <%= button_to "#{Article::KindsSpanish[kind]}", new_user_reaction_path(article_id: @article.id, reaction_type: "article", kind: kind), method: :post, class: "btn btn-success" %> 
-            </span>
-        <% end %>
-      </div>
 
       <%= form_with(model: [ @article, Comment.new ]) do |form| %>
 

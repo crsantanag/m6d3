@@ -6,4 +6,6 @@ class User < ApplicationRecord
   has_many :reactions
   has_many :comments
   has_many :articles, through: :reactions
+
+  has_one_attached :photo
 end

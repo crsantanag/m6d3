@@ -26,11 +26,18 @@
           
         <h6 class="mt-2">Último comentario, realizado el <%= comment.created_at.strftime("%d-%m-%Y") %> </h6>
 
-        <div class="my-2 border rounded-2">
-            <div class="mx-3 mb-2"> 
-              <strong class="d-inline-block">Usuario   </strong> : <%= comment.user.name if comment.user %> 
+        <div class="d-flex align-items-start my-2 border rounded-2">
+            <% if user_signed_in? %>
+              <div class="ms-2"> 
+                <% if current_user.photo.attached? %>
+                    <%= image_tag current_user.photo, class: "img-fluid rounded-circle", style: "max-width: 50px; max-height: 50px; width: 100%; height: auto;" %>
+                <% end %>
+              </div>
+            <% end %>
+            <div class="flex-grow-1 ms-2"> 
+              <strong>Usuario   </strong> : <%= comment.user.name if comment.user %> 
               <br>
-              <strong class="d-inline-block">Comentario</strong> : <%= comment.content %> 
+              <strong>Comentario</strong> : <%= comment.content %>
             </div>
         </div>
      
@@ -46,7 +53,7 @@
               </div>
           </div>
 
-            <%= form.submit "Comentar", class: "btn btn-primary mb-5" %>
+          <%= form.submit "Comentar", class: "btn btn-primary mb-5" %>
 
         <% end %>
 

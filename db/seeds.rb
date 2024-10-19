@@ -10,12 +10,12 @@
 require "faker"
 
   # Crear ciudades hasta que haya 20 diferentes
-  until Country.count == 20 do
+  until Location.count == 20 do
     city_name = Faker::Address.city
-    Country.create(name: city_name) unless Country.pluck(:name).include?(city_name)
+    Location.create(name: city_name) unless Location.pluck(:name).include?(city_name)
   end
 
-cities = Country.all
+cities = Location.all
 
 # Crear artículos hasta que haya 100, filtrando aquellos que estén relacionados con 'cats'
 until Article.count == 50 do

@@ -2,7 +2,7 @@
     <nav class="px-2 px-md-10 mx-2 mx-md-10 navbar navbar-expand-lg bg-body-tertiary fixed-top border-top border-bottom border-2 border-info">
         <div class="container-fluid">
 
-            <%= link_to "Crazy4Cats", root_path, class: 'navbar-brand' %>
+            <strong> <%= link_to "Crazy4Cats", root_path, class: 'navbar-brand' %> </strong>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -25,7 +25,11 @@
 
                 <div class="d-flex mx-2 justify-content-end align-items-center">
                     <% if user_signed_in? %>
-
+                        <% if current_user.photo.attached? %>
+                            <div class="d-flex justify-content-center">
+                            <%= image_tag current_user.photo, class: "img-fluid rounded-circle mx-2", style: "max-width: 70px; max-height: 70px; width: 100%; height: auto;" %>
+                            </div>
+                        <% end %>
                         <% if current_user.name.present? %>
                             <span class="text-dark fs-4"> Bienvenido </span> <%= link_to current_user.name,   edit_user_registration_path(@user),  class: "mx-2 btn btn-primary" %>
                         <% else %>
