@@ -46,15 +46,13 @@ Las gemas que se deben instalar son:
    - pagy  (paginación)   
    - devise (autenticación)
    - figaro (configuración de variables ENV)  
-   - activestorage (almacenamiento de imágenes)  
-     rails active_storage:install
-
+   - activestorage (almacenamiento de imágenes). Instalar: rails active_storage:install  
   
 4. Crea la base de datos, realiza la migración y carga los datos de prueba (ejecutar archivo seed.rb)  
     - rails db:create  
     - rails db:migrate  
-    - rails db:seed ( seed.rb tiene la creación del usuario user@crazy4cats.cl - revisar antes de ejecutar el comando )   
-
+    - rails db:seed ( seed.rb tiene la creación del usuario user@crazy4cats.cl - revisar antes de ejecutar el comando)  
+  
 ## Ejecutando las pruebas
 Levanta el servidor y prueba la aplición.  
 root está en /  
