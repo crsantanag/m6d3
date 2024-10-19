@@ -31,9 +31,9 @@
                             </div>
                         <% end %>
                         <% if current_user.name.present? %>
-                            <span class="text-dark fs-4"> Bienvenido </span> <%= link_to current_user.name,   edit_user_registration_path(@user),  class: "mx-2 btn btn-primary" %>
+                            <span class="text-dark fs-4"> Bienvenido </span> <%= link_to current_user.name, edit_user_registration_path(@user),  class: "mx-2 btn btn-primary" %>
                         <% else %>
-                            <span class="text-dark fs-4 mx-2"> Bienvenido <%= current_user.email %> </span> 
+                            <span class="text-dark fs-4 mx-2"> Bienvenido <%= link_to current_user.email, edit_user_registration_path(@user),  class: "mx-2 btn btn-primary" %> </span> 
                         <% end %>
 
                         <%= button_to "Cerrar sesión", destroy_user_session_path, class: "btn btn-secondary", method: :delete %>

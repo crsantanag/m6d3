@@ -1,4 +1,6 @@
 * {
+    margin: 0px;
+    padding: 0px;
     /* border: solid 1px red */
 }
 
@@ -9,4 +11,14 @@ body {
 .noticia {
     color: green;
     background-color: white;
+}
+
+.reaccion-n {
+    background-color: white;
+    color: #1c7ed6
+}
+
+.reaccion-i {
+    background-color: #1c7ed6;
+    color: white
 }

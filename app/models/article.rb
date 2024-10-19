@@ -17,4 +17,20 @@ class Article < ApplicationRecord
   validates :description,
   presence: { message: "No puede estar vacío" },
   length: { in: 2..1000, message: "debe tener entre 2 y 1000 caracteres" }
+
+  def likes_count
+    reactions.where(kind: "like").count
+  end
+
+  def dislikes_count
+    reactions.where(kind: "dislike").count
+  end
+
+  def not_interested_count
+    reactions.where(kind: "not_interested").count
+  end
+
+  def neutral_count
+    reactions.where(kind: "neutral").count
+  end
 end

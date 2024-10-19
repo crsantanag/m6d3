@@ -10,14 +10,17 @@ Ruby on Rails - postgresql
 Esta aplicación realiza, usando el modelo de un blog, publicaciones, comentarios  y likes a los artículos. Adicionalmente, tiene control de acceso (LogIn, LogOut, SignUp y editUser ) para publicar y dar likes; y está libre para comentar (no requiere ser usuario registrado).  
   
 OBS:  
-    - El usuario puede subir una imagen en su registro.  
-    - El artículo permite subir una imagen para ilustrarlo.  
-    - Los artículos se muestran en orden descendiente según la fecha de creación del mismo.  
-    - La aplicación permite determinadas vistas según el perfil del usuario. Sólo el usuario registrado puede crear artículos.  
-    - No se permite editar artículos, ya que los likes o dislikes son para el artículo que ve un usuario. Por lo tanto, si se cambia su contenido, los likes o dislikes ya no serán -necesariamente- para el articulo editado.  
-    - En esta versión no se permite eliminar un artículo.  
-    - Si se desea cambiar los datos del usuario, éste debe hacer click sonbre su nombre en la barra de navegación y lo lleva a la vista de modificación.  
-  
+   - La aplicación permite determinadas vistas según el perfil del usuario (sesión iniciada/no iniciada).  
+   - El usuario, al registrarse, puede subir una imagen en su registro.  
+   - Si se desea cambiar los datos del usuario, éste debe hacer click sonbre su nombre en la barra de navegación y lo lleva a la vista de modificación.  
+   - Sólo el usuario registrado y con sesión activa puede crear artículos.  
+   - Para reaccionar al artículo dando like, dislike o neutral el usuario debe haber iniciado sesión.  
+   - El artículo permite subir una imagen para ilustrarlo.  
+   - Los artículos se muestran en orden descendiente según la fecha de creación del mismo.  
+   - Cualquier usuario, habiendo o no iniciado sesión, puede hacer comentarios sobre un artículo.  
+   - No se permite editar artículos, ya que los likes o dislikes son para el artículo que ve un usuario. Por lo tanto, si se cambia su contenido, los likes o dislikes ya no serán -necesariamente- para el articulo editado.  
+   - En esta versión no se permite eliminar un artículo.  
+
 ## Modelo de datos  
   
 ![Modelo](modelo.jpg)

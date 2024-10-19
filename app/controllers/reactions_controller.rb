@@ -6,7 +6,7 @@ class ReactionsController < ApplicationController
     @kind = params[:kind]
 
     unless user_signed_in?
-      redirect_to article_path(@article), notice: "Debe ser usuario registrado para esta acción"
+      redirect_to article_path(@article), notice: "Debe inicar sesión para esta opción"
       return
     end
 
