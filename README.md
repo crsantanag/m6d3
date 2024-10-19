@@ -46,7 +46,7 @@ Las gemas que se deben instalar son:
    - pagy  (paginación)   
    - devise (autenticación)
    - figaro (configuración de variables ENV)  
-   - activestorage (almacenamiento de imágenes)
+   - activestorage (almacenamiento de imágenes)  
      rails active_storage:install
 
   
