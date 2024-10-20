@@ -35,16 +35,11 @@
     </div>
 
     <div class="my-2 col-12 col-md-4">
-      <%= form.label :when, "Fecha", class: "col-6" %>
+      <%= form.label :location, "Lugar", class: "col-6" %>
       <br>
-      <%= form.datetime_field :when, required: true, class: "ps-2 col-6 border rounded-2", style:"height: 40px" %>
+      <%= form.text_field :location, required: true, class: "ps-2 col-12 border rounded-2", style:"height: 40px" %>
     </div>
-
-    <div class="my-2 col-12 col-md-4">
-      <%= form.label  :location_id, "Lugar", class: "col-6" %>
-      <%= form.select :location_id, options_for_select([ ["Seleccione un lugar", ""] ] + @locations), {}, class: "ps-2 col-6 form-select", prompt: "Seleccione un lugar", required: true, style:"height: 40px" %>
-    </div>
-
+    <br>
     <div class="pt-4">
       <button type="submit" class="col-4 col-md-1 btn btn-secondary border">Submit</button>
     </div>

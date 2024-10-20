@@ -3,8 +3,7 @@ class ArticlesController < ApplicationController
 
   before_action :authenticate_user!, except: [ :index, :show ]
 
-  before_action :set_article,   only: %i[ show edit update destroy ]
-  before_action :set_locations, only: %i[ new edit create destroy update]
+  before_action :set_article,   only: %i[ show edit destroy ]
 
   # GET /articles or /articles.json
   def index
@@ -78,12 +77,8 @@ class ArticlesController < ApplicationController
       @article = Article.find(params[:id])
     end
 
-    def set_locations
-      @locations = Location.all.pluck :name, :id
-    end
-
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:image, :title, :description, :when, :location_id)
+      params.require(:article).permit(:image, :title, :description, :location)
     end
 end

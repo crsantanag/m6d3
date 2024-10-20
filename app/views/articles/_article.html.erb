@@ -9,13 +9,12 @@
         </div>
       <% end %>
 
-      <p class="my-1">
-          <strong class="d-inline-block">Lugar</strong> : <%= article.location.name %>
+      <p class="mt-1">
+          <strong class="d-inline-block">Lugar</strong> : <%= article.location %>
       </p>
-
-      <p class="mb-2">
-          <strong class="d-inline-block">Creado el</strong> : <%= article.when.strftime("%d-%m-%Y") %>
-      </p>
+      <p class="mb-1">
+          <strong class="d-inline-block">Creado por</strong> : <%= article.user.name %> <strong> el día </strong> <%= article.created_at.strftime("%d-%m-%Y") %>
+      </p> 
     </div>
 
     <div class="card-body">
