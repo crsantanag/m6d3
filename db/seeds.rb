@@ -40,6 +40,24 @@ until Article.count == 50 do
 end
 
 Article.create!(
+  image: File.open(Rails.root.join("./app/assets/images/img3.jpg")),
+  title: "5 razas de gatos sin pelo: Felinos para personas con alergia.",
+  description: "No a todo el mundo le gustan los gatos, sobre todo a las personas alérgicas. Pero un gato sin pelo puede hacer posible que una familia amante de los gatos adopte una nueva mascota sin que sus alergias se agraven demasiado. Si tu único conocimiento de los gatos sin pelo es cuando Rachel Green de “Friends” adopta un Sphynx o esfinge, te recomendamos que sigas leyendo.",
+  when: Faker::Date.between(from: 10.years.ago, to: Date.today),
+  location_id: cities.sample.id,
+  user_id: User.last.id)
+
+  Article.create!(
+    image: File.open(Rails.root.join("./app/assets/images/img2.jpg")),
+    title: "¿Por qué los gatos muerden? Y cómo hacer que paren",
+    description: "¿Tu gato te da mordiscos a menudo? Descubre por qué lo hacen y cómo evitarlo con nuestros consejos. Los gatos muerden a veces, y hay varias razones detrás de esto. No te preocupes, la mayoría de las veces no es por agresión, ¡tu gatito no es malo!
+    Los gatos son cazadores por naturaleza, así que jugar mordiendo y arañando forma parte de su comportamiento instintivo.
+    Es crucial permitirles jugar de esta manera, pero también es importante establecer límites para evitar comportamientos agresivos.",
+    when: Faker::Date.between(from: 10.years.ago, to: Date.today),
+    location_id: cities.sample.id,
+    user_id: User.last.id)
+
+Article.create!(
   image: File.open(Rails.root.join("./app/assets/images/img1.jpg")),
   title: "¿Qué verduras pueden comer los gatos?",
   description: "¿Te has preguntado si los gatos pueden comer verduras o si es mejor evitarlas en su dieta? Resulta que los gatos son carnívoros estrictos, lo que significa que su alimentación debe estar principalmente compuesta por carne. Las verduras, siendo ricas en fibra y carbohidratos, no son realmente lo que necesitan estos felinos.
@@ -49,16 +67,6 @@ Article.create!(
   location_id: cities.sample.id,
   user_id: User.last.id)
 
- Article.create!(
-  image: File.open(Rails.root.join("./app/assets/images/img2.jpg")),
-  title: "¿Por qué los gatos muerden? Y cómo hacer que paren",
-  description: "¿Tu gato te da mordiscos a menudo? Descubre por qué lo hacen y cómo evitarlo con nuestros consejos. Los gatos muerden a veces, y hay varias razones detrás de esto. No te preocupes, la mayoría de las veces no es por agresión, ¡tu gatito no es malo!
-  Los gatos son cazadores por naturaleza, así que jugar mordiendo y arañando forma parte de su comportamiento instintivo.
-  Es crucial permitirles jugar de esta manera, pero también es importante establecer límites para evitar comportamientos agresivos.",
-  when: Faker::Date.between(from: 10.years.ago, to: Date.today),
-  location_id: cities.sample.id,
-  user_id: User.last.id)
-
 puts "Se han creado #{Location.count} ciudades."
 puts "Se han creado #{Article.count} artículos relacionados con 'cats'."
-puts "se han creado 2 artículos con imágenes"
+puts "se han creado 3 artículos con imágenes"

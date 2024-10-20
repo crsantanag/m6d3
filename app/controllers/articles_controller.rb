@@ -36,6 +36,7 @@ class ArticlesController < ApplicationController
     # @article = Article.new(article_params)
     @article = Article.new
     @article = current_user.articles.build(article_params) # Asocia el artículo al usuario actual
+    @article.user_id = current_user.id
 
     respond_to do |format|
       if @article.save
