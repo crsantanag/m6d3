@@ -45,22 +45,30 @@
         <%= button_to "<i class='mb-3 me-2 fa-regular fa-face-smile fa-2xl reaccion-n'></i>".html_safe + "<span class='me-2 badge rounded-pill bg-primary'>#{article.reactions.where(kind: "like").count}</span>".html_safe, 
         new_user_reaction_path(article_id: article.id, reaction_type: "article", kind: "like"), 
         method: :post, 
-        class: "btn btn-light w-100" %>
+        class: "btn btn-light w-100", 
+        data: { bs_toggle: "tooltip", bs_placement: "bottom" },
+        title: "Me gusta" %>
 
         <%= button_to "<i class='mb-3 me-2 fa-regular fa-face-frown fa-2xl reaccion-n me-sm-2'></i>".html_safe + "<span class='me-2 badge rounded-pill bg-primary'>#{article.reactions.where(kind: "dislike").count}</span>".html_safe, 
         new_user_reaction_path(article_id: article.id, reaction_type: "article", kind: "dislike"), 
         method: :post, 
-        class: "btn btn-light w-100" %>
+        class: "btn btn-light w-100",
+        data: { bs_toggle: "tooltip", bs_placement: "bottom" },
+        title: "No me gusta" %>
 
         <%= button_to "<i class='mb-3 me-2 fa-regular fa-face-rolling-eyes fa-2xl reaccion-n me-sm-2'></i>".html_safe + "<span class='me-2 badge rounded-pill bg-primary'>#{article.reactions.where(kind: "not_interested").count}</span>".html_safe, 
         new_user_reaction_path(article_id: article.id, reaction_type: "article", kind: "not_interested"), 
         method: :post, 
-        class: "btn btn-light w-100" %>
+        class: "btn btn-light w-100",
+        data: { bs_toggle: "tooltip", bs_placement: "bottom" },
+        title: "No me interesa" %>
 
         <%= button_to "<i class='mb-3 me-2 fa-regular fa-face-meh  fa-2xl reaccion-n me-sm-2'></i>".html_safe + "<span class='me-2 badge rounded-pill bg-primary'>#{article.reactions.where(kind: "neutral").count}</span>".html_safe, 
         new_user_reaction_path(article_id: article.id, reaction_type: "article", kind: "neutral"), 
         method: :post, 
-        class: "btn btn-light w-100" %>
+        class: "btn btn-light w-100",
+        data: { bs_toggle: "tooltip", bs_placement: "bottom" },
+        title: "Indiferente" %>
       </div>
 
     </div>
