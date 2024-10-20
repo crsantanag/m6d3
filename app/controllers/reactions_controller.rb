@@ -14,15 +14,15 @@ class ReactionsController < ApplicationController
 
     respond_to do |format|
       (@type == "comment") ? reaction_comment = Reaction.find_by(user_id: @user, comment_id: @comment.id) : reaction_article = Reaction.find_by(user_id: @user.id,  article_id: @article.id)
-      puts "*** Salió de comment"
+
       if reaction_article || reaction_comment
-        format.html { redirect_to article_path(@article), notice: "Ud. ya reaccionó antes a este artículo" }
+        format.html { redirect_to article_path(@article), notice: "Ud. ya reaccionó a este artículo" }
       else
-        puts "*** Entró a article"
+
         (@type == "article") ? @reaction = Reaction.new(user_id: @user.id, article_id:  @article.id, reaction_type: @type, kind: @kind) : @reaction = Reaction.new(user_id: @user.id, comment_id: @comment.id, reaction_type: @type, kind: @kind)
 
         if @reaction.save!
-            format.html { redirect_to article_path(@article), notice: "Su reacción fue guardada" }
+            format.html { redirect_to article_path(@article), notice: "Reacción registrada" }
         else
           format.html { redirect_to article_path(@article), notice: "Ha ocurrido algo extraño - No se pudo registrar reacción" }
         end

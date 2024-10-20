@@ -9,12 +9,10 @@
         </div>
       <% end %>
 
-      <p class="mt-1">
-          <strong class="d-inline-block">Lugar</strong> : <%= article.location %>
-      </p>
-      <p class="mb-1">
-          <strong class="d-inline-block">Creado por</strong> : <%= article.user.name %> <strong> el día </strong> <%= article.created_at.strftime("%d-%m-%Y") %>
-      </p> 
+      <div class="flex-grow-1 ms-2"> 
+          <strong>Artículo creado por</strong> <%= article.user.name %> <strong> el día </strong> <%= article.created_at.strftime("%d-%m-%Y %H:%M") %> <strong> en </strong> <%= article.location %>
+      </div>
+
     </div>
 
     <div class="card-body">
@@ -24,13 +22,20 @@
       <div class="d-flex justify-content-start align-items-center mb-2"> 
         <% if controller_name == "articles" %>
           <% if action_name == "index" %>
-              <%= link_to "Ver artículo ".html_safe + "<span class='top-0 badge rounded-pill bg-danger'>#{article.comments.count}</span>".html_safe, article, class: "btn btn-primary mt-2" %>
+
+              <%= link_to "Ver artículo ", article, class: "btn btn-primary me-3" %>
+              <span class="btn-success"> 
+                  <strong> Comentarios asociados </strong> <span class="top-0 badge rounded-pill bg-danger"> + <%= article.comments.count %> </span>
+              </span>
+
           <% elsif action_name == "show" %>
+
               <% if user_signed_in? %>
                   <% if article.user_id == current_user.id %>
                       <%= button_to "Eliminar artículo", @article, method: :delete, data: { confirm: "¿Está seguro?" }, class: "col-3 col-md-1  py-2 btn btn-warning", style:"width: 200px" %>
                   <% end %>
               <% end %>
+
           <% end %>
         <% end%>
       </div>

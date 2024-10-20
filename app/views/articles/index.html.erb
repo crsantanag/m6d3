@@ -34,7 +34,7 @@
 
       <% if (comment = article.comments.last) %>  <!-- Asigno el último comentario y verifico si existe -->
           
-        <h6 class="mt-2">Último comentario, realizado el <%= comment.created_at.strftime("%d-%m-%Y") %> </h6>
+        <h6 class="mt-4"> <strong>Último comentario. </strong>Realizado el <%= comment.created_at.strftime("%d-%m-%Y %H:%M") %> </h6>
 
         <div class="d-flex align-items-start my-2 border rounded-2">
             <% if user_signed_in? %>
@@ -44,13 +44,23 @@
                 <% end %>
               </div>
             <% end %>
+
             <div class="flex-grow-1 ms-2"> 
-              <strong>Usuario   </strong> : <%= comment.user.name if comment.user %> 
+              <% if comment.user %>
+                 <strong>Usuario   </strong> : <%= comment.user.name %>
+              <% else %>
+                  <strong> Comentario Anónimo </strong>
+              <% end %>
               <br>
-              <strong>Comentario</strong> : <%= comment.content %>
+              <%= comment.content %>
             </div>
+
         </div>
      
+      <% end %>
+
+      <% if article.comments.count > 1%>
+        <%= link_to "Ver todos los comentarios ".html_safe + "<span class='top-0 badge rounded-pill bg-danger'> + #{article.comments.count - 1} </span>".html_safe, article, class: "btn btn-success mt-2" %>
       <% end %>
 
       <%= form_with(model: [ article, Comment.new ]) do |form| %>

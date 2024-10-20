@@ -43,13 +43,18 @@
 
       <% @article.comments.order(created_at: :desc).each do |comment| %> <!-- Itero sobre los comentarios de cada article -->
         <div class="my-1 border rounded-2">
-            <%= l(comment.created_at, format: :long) %> <br>
+            <%= comment.created_at.strftime("%d-%m-%Y %H:%M") %> <br>
 
-            <div class="mx-3 mb-2"> 
-                <strong class="d-inline-block">Usuario   </strong> : <%= comment.user.name if comment.user %> 
-                <br>
-                <strong class="d-inline-block">Comentario</strong> : <%= comment.content %> 
+            <div class="flex-grow-1 ms-2"> 
+              <% if comment.user %>
+                 <strong>Usuario   </strong> : <%= comment.user.name %>
+              <% else %>
+                  <strong> Comentario Anónimo </strong>
+              <% end %>
+              <br>
+              <%= comment.content %>
             </div>
+
         </div>
       <% end %>
 
