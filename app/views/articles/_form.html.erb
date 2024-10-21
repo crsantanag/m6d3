@@ -18,29 +18,29 @@
       <%= form.label :image, "Imagen (no obligatoria) - Tamaño relación 2:1 - Máx 1 Mb", class: "col-12" %>
       <br>
       <div class="d-flex align-items-center">
-        <%= form.file_field :image,  placeholder: "Cargar archivo de imagen", class: "ps-2 py-1 col-12 border rounded-2", style:"height: 40px" %>
+        <%= form.file_field :image,  placeholder: "Cargar archivo de imagen", class: "ps-2 py-1 col-12 border border-2 border-secondary-subtle rounded", style:"height: 40px" %>
       </div>
     </div>
 
     <div class="my-2 col-12 col-md-6">
       <%= form.label :title, "Título", class: "col-12" %>
       <br>
-      <%= form.text_field :title, required: true, class: "ps-2 col-12 border rounded-2", style:"height: 40px" %>
+      <%= form.text_field :title, required: true, class: "ps-2 col-12 border border-2 border-secondary-subtle rounded", style:"height: 35px" %>
     </div>
 
     <div class="my-2 col-12 col-md-6">
       <%= form.label :description, "Descripción", class: "col-12" %>
       <br>
-      <%= form.text_area :description, required: true, class: "ps-2 col-12 border rounded-2", rows: 3 %>
+      <%= form.text_area :description, required: true, class: "ps-2 col-12 border border-2 border-secondary-subtle rounded", rows: 3 %>
     </div>
 
     <div class="my-2 col-12 col-md-4">
       <%= form.label :location, "Lugar", class: "col-6" %>
       <br>
-      <%= form.text_field :location, required: true, class: "ps-2 col-12 border rounded-2", style:"height: 40px" %>
+      <%= form.text_field :location, required: true, class: "ps-2 col-12 border border-2 border-secondary-subtle rounded", style:"height: 35px" %>
     </div>
     <br>
-    <div class="pt-4">
+    <div class="pt-2">
       <button type="submit" class="col-4 col-md-1 btn btn-secondary border">Submit</button>
     </div>
 

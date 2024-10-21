@@ -31,8 +31,7 @@ class CommentsController < ApplicationController
     else
       session[:previous_page] = nil
     end
-
-    @article = Article.find(params[:article_id]) # Aquí obtengo el post según el ID pasado en la ruta
+    @article = Article.find(params[:comment][:article_id])  # Aquí obtengo el post según el ID pasado en la ruta
   end
 
   def comment_params

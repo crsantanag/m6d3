@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
   # GET /articles or /articles.json
   def index
     @pagy, @articles = pagy(Article.order(created_at: :desc))
+    @comment = Comment.new
     #    .left_joins(:comments)
     #    .select("articles.*, COUNT(comments.id) AS comments_count")
     #    .group("articles.id")

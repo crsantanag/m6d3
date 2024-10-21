@@ -24,17 +24,7 @@
 
       <%= render @article %>
 
-      <%= form_with(model: [ @article, Comment.new ]) do |form| %>
-
-          <div class="my-2 w-100">
-            <div class="form-group my-2">
-              <%= form.label :content, "Ingresa tu comentario", class: "col-12"%>
-              <%= form.text_area :content, required: true, class: "form-control ps-2 col-12 border rounded-2", rows: 3 %>
-            </div>
-            <%= form.submit "Comentar", class: "btn btn-primary" %>
-          </div>
-
-      <% end %>
+      <%= render "comments/form", comment: @comment, article: @article %>
 
       <br>
       <% if @article.comments.count > 0%>
@@ -42,12 +32,12 @@
       <% end %>
 
       <% @article.comments.order(created_at: :desc).each do |comment| %> <!-- Itero sobre los comentarios de cada article -->
-        <div class="my-1 border rounded-2">
+        <div class="my-1 border border-2 border-secondary-subtle rounded">
             <%= comment.created_at.strftime("%d-%m-%Y %H:%M") %> <br>
 
             <div class="flex-grow-1 ms-2"> 
               <% if comment.user %>
-                 <strong>Usuario   </strong> : <%= comment.user.name %>
+                 <strong> Usuario </strong> : <%= comment.user.name %>
               <% else %>
                   <strong> Comentario Anónimo </strong>
               <% end %>

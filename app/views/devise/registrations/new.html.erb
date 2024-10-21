@@ -6,7 +6,7 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "ps-2 col-6 border rounded-2", style:"height: 40px"  %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "ps-2 col-6 border border-2 border-secondary-subtle rounded", style:"height: 35px"  %>
   </div>
 
   <div class="field">
@@ -14,26 +14,26 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> caracteres mínimo)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: "ps-2 col-2 border rounded-2", style:"height: 40px"  %>
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: "ps-2 col-2 border border-2 border-secondary-subtle rounded", style:"height: 35px"  %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirmar password", class: "ps-2 col-2 border rounded-2", style:"height: 40px" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirmar password", class: "ps-2 col-2 border border-2 border-secondary-subtle rounded", style:"height: 35px" %>
   </div>
   <br>
 
   <div class="my-2">
     <%= f.label :name, "Nombre", class: "col-6" %>
       <br>
-    <%= f.text_field :name,  placeholder: "Name", required: true, class: "ps-2 col-6 border rounded-2", style:"height: 40px" %>
+    <%= f.text_field :name,  placeholder: "Name", required: true, class: "ps-2 col-6 border border-2 border-secondary-subtle rounded", style:"height: 35px" %>
   </div>
 
   <div class="my-2 col-12 col-md-6">
     <%= f.label :photo, "Foto - Formato relación 1:1 - Tamaño máx 1 Mb", class: "col-12" %>
     <br>
     <div class="d-flex align-items-center">
-    <%= f.file_field :photo,  placeholder: "Cargar archivo de imagen", class: "ps-2 py-1 col-12 border rounded-2", style:"height: 40px" %>
+    <%= f.file_field :photo,  placeholder: "Cargar archivo de imagen", class: "ps-2 py-1 col-8 border border-2 border-secondary-subtle rounded", style:"height: 40px" %>
     </div>
   </div>
 
