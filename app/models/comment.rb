@@ -7,5 +7,5 @@ class Comment < ApplicationRecord
 
   validates :content,
   presence: { message: "No puede estar vacío" },
-  length: { in: 2..1000, message: "debe tener entre 2 y 1000 caracteres" }
+  length: { in: 1..1000, message: "debe tener entre 2 y 1000 caracteres" }
 end

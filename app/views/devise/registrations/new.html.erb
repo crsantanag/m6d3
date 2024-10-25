@@ -32,13 +32,13 @@
   <div class="my-2 col-12 col-md-6">
     <%= f.label :photo, "Foto - Formato relación 1:1 - Tamaño máx 1 Mb", class: "col-12" %>
     <br>
-    <div class="d-flex align-items-center">
+    <div class="my-2 col-12 col-md-6">
     <%= f.file_field :photo,  placeholder: "Cargar archivo de imagen", class: "ps-2 py-1 col-8 border border-2 border-secondary-subtle rounded", style:"height: 40px" %>
     </div>
   </div>
 
   <div class="actions">
-    <%= f.submit "Registrar", class: "btn btn-secondary" %>
+    <%= f.submit "Enviar", class: "btn btn-secondary" %>
   </div>
 <% end %>
 

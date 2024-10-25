@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get "pages/index"
+  # Defines the root path route ("/")
+  root "pages#index"
   resources :comments
 
   resources :articles, except: [ :index ] do
@@ -11,9 +12,9 @@ Rails.application.routes.draw do
     registrations: "users/registrations"
   }
 
-  # Defines the root path route ("/")
-  root "pages#index"
   get "/articles", to: "articles#index", as: "user_root"
+
+
 
   post "/new_user_reaction", to: "reactions#new_user_reaction", as: "new_user_reaction"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
